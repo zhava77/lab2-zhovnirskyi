@@ -45,7 +45,7 @@ class EventBus:
 
     def get_history(self) -> list[Event]:
         return list(self._history)
-    
+
     def get_event_count(self) -> int:
         return self._event_count
 
