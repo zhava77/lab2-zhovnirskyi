@@ -18,3 +18,13 @@ def log_event(event):
 def log_error(message: str):
     """Log an error message."""
     logger.error(message)
+
+def set_level(level: str):
+    """Set logging level dynamically."""
+    levels = {
+        "DEBUG": logging.DEBUG,
+        "INFO": logging.INFO,
+        "WARNING": logging.WARNING,
+        "ERROR": logging.ERROR,
+    }
+    logger.setLevel(levels.get(level.upper(), logging.INFO))
