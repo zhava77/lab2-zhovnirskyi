@@ -1,4 +1,4 @@
-"""Event model and registry (refactored)."""
+"""Event model and registry (refactored with metrics)."""
 
 from datetime import datetime, timezone
 
@@ -23,6 +23,7 @@ class EventBus:
     """Central hub that dispatches events to registered handlers."""
 
     def __init__(self):
+        self._event_count: int = 0
         self._handlers: dict[str, list] = {}
         self._history: list[Event] = []
 
@@ -36,12 +37,17 @@ class EventBus:
 
     def publish(self, event: Event):
         self._history.append(event)
+        self._event_count += 1
         for handler in self._handlers.get(event.event_type, []):
             handler(event)
 
     def get_history(self) -> list[Event]:
         return list(self._history)
+    
+    def get_event_count(self) -> int:
+        return self._event_count
 
     def clear(self):
         self._handlers.clear()
         self._history.clear()
+        self._event_count = 0
