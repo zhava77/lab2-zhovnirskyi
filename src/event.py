@@ -18,7 +18,6 @@ class Event:
             f"ts={self.timestamp.isoformat()})"
         )
 
-
 class EventBus:
     """Central hub that dispatches events to registered handlers."""
 
@@ -45,7 +44,7 @@ class EventBus:
 
     def get_history(self) -> list[Event]:
         return list(self._history)
-    
+
     def get_event_count(self) -> int:
         return self._event_count
 

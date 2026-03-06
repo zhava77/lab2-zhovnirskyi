@@ -2,10 +2,11 @@
 
 import sys
 import os
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
 from src.event import Event
 from src.validator import validate, validate_event_type, validate_payload
+
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
 
 def test_valid_event():

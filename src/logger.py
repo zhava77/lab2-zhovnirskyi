@@ -19,6 +19,7 @@ def log_error(message: str):
     """Log an error message."""
     logger.error(message)
 
+
 def set_level(level: str):
     """Set logging level dynamically."""
     levels = {
