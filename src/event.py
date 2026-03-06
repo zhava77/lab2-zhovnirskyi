@@ -1,4 +1,4 @@
-"""Event model and registry (refactored with metrics)."""
+"""Event model and registry (refactored with logging and metrics)."""
 
 from datetime import datetime, timezone
 
@@ -36,8 +36,10 @@ class EventBus:
             handlers.remove(handler)
 
     def publish(self, event: Event):
+        from src.logger import log_event
         self._history.append(event)
         self._event_count += 1
+        log_event(event)
         for handler in self._handlers.get(event.event_type, []):
             handler(event)
 
