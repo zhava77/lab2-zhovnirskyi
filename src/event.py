@@ -18,6 +18,7 @@ class Event:
             f"ts={self.timestamp.isoformat()})"
         )
 
+
 class EventBus:
     """Central hub that dispatches events to registered handlers."""
 
