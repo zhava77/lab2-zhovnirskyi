@@ -61,7 +61,7 @@ jobs:
       - name: Run smoke tests
         run: |
           python -c "
-          assert 1 == 1, 'Health check failed'
+          assert 1 == 2, 'Health check failed'
           print('Smoke test 1: PASSED')
           from src.event import Event, EventBus
           bus = EventBus()
