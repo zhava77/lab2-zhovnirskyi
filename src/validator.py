@@ -1,6 +1,6 @@
 """Validation module for events."""
 
-ALLOWED_TYPES = {"user_logout", "purchase", "error", "info"}
+ALLOWED_TYPES = {"user_login", "user_logout", "purchase", "error", "info"}
 
 
 def validate_event_type(event) -> bool:
